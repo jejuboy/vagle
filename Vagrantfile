@@ -6,5 +6,5 @@ Vagrant.configure(2) do |config|
       vb.name = "vagle"
 	  vb.gui = true
 	end
-	config.vm.provision "shell", path: "bootstrap.sh"
+	config.vm.provision "shell", path: "setup.sh"
 end
