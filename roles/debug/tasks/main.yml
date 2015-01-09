@@ -1,0 +1,15 @@
+
+- name: hostsvars
+  debug: var=hostvars
+
+- name: ansible_ssh_host
+  debug: var=ansible_ssh_host
+
+- name: ansible_distribution
+  debug: var=ansible_distribution
+
+- name: ansible_eth0.ipv4.address
+  debug: var=ansible_eth0.ipv4.address
+
+- name: ansible_env.PWD
+  debug: var=ansible_env.PWD
