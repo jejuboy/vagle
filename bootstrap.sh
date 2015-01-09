@@ -13,6 +13,7 @@ sudo apt-get install -y ansible
 # Initialize Ansible
 cd /home/vagrant
 mkdir -p workspace/jejuboy
+cd workspace/jejuboy
 git clone https://github.com/jejuboy/vagle.git
 chown -R vagrant:vagrant vagle
 cd vagle
