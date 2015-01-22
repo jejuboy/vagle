@@ -15,6 +15,6 @@ cd /home/vagrant
 mkdir -p workspace/jejuboy
 cd workspace/jejuboy
 git clone https://github.com/jejuboy/vagle.git
-chown -R vagrant:vagrant vagle
+chown -R vagrant:vagrant ~/workspace/
 cd vagle
 ansible-playbook -i hosts site.yml
