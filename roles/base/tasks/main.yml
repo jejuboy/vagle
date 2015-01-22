@@ -1,0 +1,3 @@
+---
+- name: run sudo command without password
+  lineinfile: "dest=/etc/sudoers state=present regexp='^%sudo' line='%sudo ALL=(ALL:ALL) NOPASSWD:ALL'"

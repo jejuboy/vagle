@@ -5,6 +5,7 @@
     - config.yml
   roles:
     - { role: debug, tags: ['debug'] }
+    - { role: base, tags: ['base'] }
     - { role: samba, tags: ['samba'] }
     - { role: java, tags: ['java'] }
     - { role: chrome, tags: ['chrome'] }
