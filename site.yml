@@ -4,3 +4,4 @@
   roles:
     - { role: debug, tags: ['debug'] }
     - { role: samba, tags: ['samba'] }
+    - { role: java, tags: ['java'] }
