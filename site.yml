@@ -1,7 +1,10 @@
 - name: 
   hosts: all
   sudo: yes
+  vars_files:
+    - config.yml
   roles:
     - { role: debug, tags: ['debug'] }
     - { role: samba, tags: ['samba'] }
     - { role: java, tags: ['java'] }
+    - { role: chrome, tags: ['chrome'] }
