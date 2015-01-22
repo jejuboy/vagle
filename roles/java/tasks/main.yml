@@ -1,0 +1,30 @@
+---
+- name: check java 8 exists
+  stat: path=/usr/lib/jvm/java-8-oracle/bin/java
+  register: java8_stat
+
+- name: ensure required packages are installed for java 8
+  apt: name={{ item }} state=latest update_cache=yes
+  with_items:
+    - python-software-properties
+  when: not java8_stat.stat.exists
+
+- name: add java repository to sources
+  action: apt_repository repo='ppa:webupd8team/java'
+  when: not java8_stat.stat.exists
+
+- name: autoaccept license for java
+  action: shell echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+  when: not java8_stat.stat.exists
+
+- name: update apt package cache
+  action: apt update_cache=yes
+  when: not java8_stat.stat.exists
+
+- name: auto accept license
+  shell: echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections &&  echo debconf shared/accepted-oracle-license-v1-1 seen true |  debconf-set-selections && apt-get -y install oracle-java8-installer
+  when: not java8_stat.stat.exists
+
+- name: set java 8 env
+  action: apt pkg=oracle-java8-set-default state=latest install_recommends=yes
+  when: not java8_stat.stat.exists
