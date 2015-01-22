@@ -8,3 +8,4 @@
     - { role: samba, tags: ['samba'] }
     - { role: java, tags: ['java'] }
     - { role: chrome, tags: ['chrome'] }
+    - { role: vim, tags: ['vim'] }
