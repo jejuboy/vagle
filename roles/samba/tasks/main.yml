@@ -1,10 +1,8 @@
 ---
-- name: install samba
+- name: samba is installed
   apt: pkg=samba state=latest
-  notify:
-    - samba-restart
 
 - name: add samba config
-  template: src=smb.conf.j2 dest=/etc/samba/smb.conf mode=0640
+  template: src=smb.conf.j2 dest=/etc/samba/smb.conf mode=0644
   notify:
-    - samba-restart
+    - restart smbd
